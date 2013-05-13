@@ -284,17 +284,7 @@ public class TimeLineView extends HorizontalListView {
 		}
 
 		@Override
-		public Object getItem(int arg0) {
-			return null;
-		}
-
-		@Override
-		public long getItemId(int arg0) {
-			return arg0;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+		public YearView getItem(int position) {
 			YearView v = null;
 			if (position < getCount() - 1) {
 				v = new YearView(mContext);
@@ -316,6 +306,17 @@ public class TimeLineView extends HorizontalListView {
 			v.setYearColor(mYearColor);
 			v.setUseLines(mUsesLines);
 			return v;
+		}
+
+		@Override
+		public long getItemId(int arg0) {
+			return arg0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			return getItem(position);
 		}
 
 	}
