@@ -295,27 +295,24 @@ public class TimeLineView extends HorizontalListView {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			
-			YearView v= (YearView) convertView;
-			if(convertView==null)
+
+			YearView v = (YearView) convertView;
+			if (v == null)
 				v = new YearView(mContext);
-			if (position < getCount() - 1) {
+			if (v.getYear() != mStartYear + position * mStep) {
 				v.setYear(mStartYear + position * mStep);
 				v.setId(mStartYear + position * mStep);
-			} else {
-				v.setYear(mEndYear);
-				v.setId(mEndYear);
+				v.setBackgroundColor(mBackgroundColor);
+				v.setBackgroundResource(mBackgroundResource);
+				v.setLinesColor(mLinesColor);
+				v.setLinesCount(mLinesCount);
+				v.setLinesHeight(mLinesHeight);
+				v.setLinesWidth(mLinesWidth);
+				v.setIntervalWidth(mIntervalWidth);
+				v.setYearSize(mYearSize);
+				v.setYearColor(mYearColor);
+				v.setUseLines(mUsesLines);
 			}
-			v.setBackgroundColor(mBackgroundColor);
-			v.setBackgroundResource(mBackgroundResource);
-			v.setLinesColor(mLinesColor);
-			v.setLinesCount(mLinesCount);
-			v.setLinesHeight(mLinesHeight);
-			v.setLinesWidth(mLinesWidth);
-			v.setIntervalWidth(mIntervalWidth);
-			v.setYearSize(mYearSize);
-			v.setYearColor(mYearColor);
-			v.setUseLines(mUsesLines);
 			return v;
 		}
 
